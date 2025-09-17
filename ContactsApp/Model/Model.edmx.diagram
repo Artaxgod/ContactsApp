@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cbd6cce8ae1a4156b08c7b9e776498bc" Name="Diagram1">
+        <EntityTypeShape EntityType="ContactsAppModel.Contacts" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ContactsAppModel.Events" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ContactsAppModel.Users" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="ContactsAppModel.FK__Contacts__UserId__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="ContactsAppModel.FK__Events__ContactI__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="ContactsAppModel.FK__Events__UserId__2C3393D0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

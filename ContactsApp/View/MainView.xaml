@@ -1,0 +1,71 @@
+﻿<Window x:Class="ContactsApp.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContactsApp.View"
+        mc:Ignorable="d"
+        Title="Менеджер контактов" Height="600" Width="900"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <TabControl>
+            <TabItem Header="Контакты">
+                <Grid>
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10" Height="40">
+                            <TextBox x:Name="SearchTextBox" Width="200" Margin="0,0,10,0" 
+                                     TextChanged="SearchTextBox_TextChanged"/>
+                            <ComboBox x:Name="CategoryComboBox" Width="120" Margin="0,0,10,0"
+                                      SelectionChanged="CategoryComboBox_SelectionChanged">
+                                <ComboBoxItem>Все</ComboBoxItem>
+                                <ComboBoxItem>Friends</ComboBoxItem>
+                                <ComboBoxItem>Family</ComboBoxItem>
+                                <ComboBoxItem>Business</ComboBoxItem>
+                            </ComboBox>
+                            <Button Content="Добавить" Click="AddContactButton_Click" Margin="0,0,10,0"/>
+                            <Button Content="Редактировать" Click="EditContactButton_Click" Margin="0,0,10,0"/>
+                            <Button Content="Удалить" Click="DeleteContactButton_Click"/>
+                        </StackPanel>
+
+                        <DataGrid x:Name="ContactsDataGrid" AutoGenerateColumns="False"
+                                  IsReadOnly="True" SelectionMode="Single">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="100"/>
+                                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="100"/>
+                                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="150"/>
+                                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="120"/>
+                                <DataGridTextColumn Header="Компания" Binding="{Binding Company}" Width="120"/>
+                                <DataGridTextColumn Header="Категория" Binding="{Binding Category}" Width="100"/>
+                                <DataGridTextColumn Header="Заметки" Binding="{Binding Notes}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="События">
+                <Grid>
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10" Height="40">
+                            <Button Content="Добавить событие" Click="AddEventButton_Click" Margin="0,0,10,0"/>
+                            <Button Content="Отметить выполненным" Click="CompleteEventButton_Click" Margin="0,0,10,0"/>
+                        </StackPanel>
+
+                        <DataGrid x:Name="EventsDataGrid" AutoGenerateColumns="False"
+                                  IsReadOnly="True" SelectionMode="Single">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Дата" Binding="{Binding EventDate, StringFormat=dd.MM.yyyy}" Width="100"/>
+                                <DataGridTextColumn Header="Событие" Binding="{Binding Title}" Width="200"/>
+                                <DataGridTextColumn Header="Контакт" Binding="{Binding ContactName}" Width="150"/>
+                                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
+                                <DataGridTextColumn Header="Напоминание" Binding="{Binding ReminderText}" Width="120"/>
+                                <DataGridCheckBoxColumn Header="Выполнено" Binding="{Binding IsCompleted}" Width="80"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
